@@ -193,7 +193,7 @@ C     ROUTINE FOR MODEL APR 77
 C     ----------SETING UP ARRAY OF REFRACTIVITY------------------ 
           
       DN=-7.32*EXP (0.005577*ENS)     
-      CE=ALOG(ENS/(ENS+DN))           
+      CE=LOG(ENS/(ENS+DN))           
       AZ=6370.          
       DUM=0.0           
       AS=AZ+HS          
@@ -204,8 +204,8 @@ C     ----------SETING UP ARRAY OF REFRACTIVITY------------------
    10 CONTINUE          
       DO 20 I=2,25      
       K=I-1             
-      DN2N=ALOG(RI(I))-ALOG(RI(K))    
-      DR2R=ALOG(R(I))-ALOG(R(K))      
+      DN2N=LOG(RI(I))-LOG(RI(K))    
+      DR2R=LOG(R(I))-LOG(R(K))      
       A(I)=DN2N/DR2R    
    20 CONTINUE          
       RYTRA=DUM         
@@ -415,8 +415,8 @@ C     RE BECOME NORMALIZED ANTENNA HEIGHTS
 C         ALSC IS ATTENUATION         
           
       ALSC=83.1         
-     C     +4.3429*ALOG(THETA**3*WN/DQ)             
-     C      +8.6859*Q0*HC-17.3718*ALOG(Q1)          
+     C     +4.3429*LOG(THETA**3*WN/DQ)             
+     C      +8.6859*Q0*HC-17.3718*LOG(Q1)          
      C      -Q2/(1.+(HC/3.6)**2)      
      C      +WSCAT(ET,SS,RE(1),RE(2))               
           
@@ -910,8 +910,8 @@ C     ROUTINE FOR MODEL APR 77
       GO TO 21          
    21 IF(K.GT.0) GO TO 30             
       IF(F.GT.1600.) GO TO 4          
-      QG1=(.21*SIN (5.22*ALOG10(F/200.)))+1.28      
-      QG9=(.18*SIN (5.22*ALOG10(F/200.)))+1.23      
+      QG1=(.21*SIN (5.22*LOG10(F/200.)))+1.28      
+      QG9=(.18*SIN (5.22*LOG10(F/200.)))+1.23      
       IF (MX1 .EQ. 0) GO TO 6         
       QG12=QG1          
       QG92=QG9          
@@ -927,8 +927,8 @@ C     ROUTINE FOR MODEL APR 77
       GO TO 30          
    23 IF(K.GT.0) GO TO 25             
       IF(F.GT.1600.) GO TO 14         
-      QG1=(.21*SIN (5.22*ALOG10(F/200.)))+1.28      
-      QG9=(.18*SIN (5.22*ALOG10(F/200.)))+1.23      
+      QG1=(.21*SIN (5.22*LOG10(F/200.)))+1.28      
+      QG9=(.18*SIN (5.22*LOG10(F/200.)))+1.23      
       IF (MX1 .EQ. 0) GO TO 16        
       QG12=QG1          
       QG92=QG9          
@@ -1091,7 +1091,7 @@ C     MIXED--ALL YEAR TIME BLOCK YS AND CONTINENTAL V(50)
       Q=R(1)*R(2)       
       IF(Q .NE. 0.) Q=Q*2./(R(1)+R(2))              
       A=C/(Q+1.)+A      
-      WSCAT=ALOG(A)*4.3429 
+      WSCAT=LOG(A)*4.3429 
       RETURN            
       END               
       SUBROUTINE YIKK(T,PV,V)         

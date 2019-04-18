@@ -64,7 +64,7 @@ C     ROUTINE FOR MODEL APR 77
       BSPI=.3183098862                
       ALIM=3.           
       TWHT=2.*HTE       
-      AFP=32.45+20.*ALOG10(FREK)      
+      AFP=32.45+20.*LOG10(FREK)      
       F=FREK            
       JG=0              
       NCT=0             
@@ -408,7 +408,7 @@ C     -----------------------------------------------------------
       RFS=SQRT(TRM1+(4.*ZFS1*ZFS2*TRM2))            
       DTX=ABS(ZFS2-ZFS1)              
       IF(RFS.LT.DTX) RFS=DTX          
-      ALFS=AFP+20.*ALOG10(RFS)        
+      ALFS=AFP+20.*LOG10(RFS)        
       BA=CA+TWT1*(AEFT-A0)            
       ACA=ABA+TWT2*(AEFT-A0)          
       PFS=PIRP-ALFS     
@@ -418,7 +418,7 @@ C     -----------------------------------------------------------
   845 CALL GANE(BA,IFA,HLPBW,T1T,GFVD,GFDH,GFD,IPL)               
       GOD=GAD*GFD       
       IF (IPL .GE. 3) GOD=0.5*(GFVD*GADV+GFDH*GADH)               
-      GPD=20.*ALOG10(GOD)             
+      GPD=20.*LOG10(GOD)             
       IF(DH.LE.0.) GO TO 42           
       DHD=DH*(1.-(0.8*EXP (-0.02*D)))*1000.         
    44 CALL SORB(Z(1),Z(2),A,R0,CA,RE)               
@@ -495,9 +495,9 @@ C     --------------CALCULATION OF LOBING CONTRIBUTION-----------
 C     -------------------SUMMATION OF TERMS---------------------- 
   136 AT2=CMPLX(ATRM,BTRM)            
       IF (SI .LE. SILIM .AND. ILB .LE. 0) GO TO 137               
-  138 WRL=CABS(GOD+AT1+AT2)           
+  138 WRL=ABS(GOD+AT1+AT2)           
       WR=WRL*WRL+(.0001*GOD)          
-  139 PR=10.*ALOG10(WR)               
+  139 PR=10.*LOG10(WR)               
       IF(D.LE.DZR) GO TO 148          
       IF(DZR.LT.0.) GO TO 145         
       PL=FNA(D,DML,DZR,PRH,PZ)        
@@ -516,7 +516,7 @@ C     ----------------LONG-TERM POWER FADING---------------------
   303 CALL VARDT(DEE)                 
       IF(CA.LE.0.) GO TO 32           
       IF(CA.GE.1.) GO TO 33           
-      FTH=.5-BSPI*(ATAN (20.*ALOG10(32.*CA)))       
+      FTH=.5-BSPI*(ATAN (20.*LOG10(32.*CA)))       
       IF(FTH.LE.0.0) GO TO 33         
    52 AL10=PL+(AD(13)*FTH)            
       AY=AL10-ALIM      
@@ -602,12 +602,12 @@ C     ------------------TROPOSHERIC MULTIPATH--------------------
    17 CONTINUE          
       RSP=REG*FDR*FAY                 
       IF(RE(2).LE.0.) GO TO 45        
-      RK=-10.*ALOG10(ASPC*(RE(2)**3))               
+      RK=-10.*LOG10(ASPC*(RE(2)**3))               
       ACK=FDASP(RK)     
       WA=10.**(.1*ACK)                
    46 RST=((RSP*RSP+RDG*RDG)/(GOD*GOD))+WA          
       IF(RST.LE.0.) GO TO 37          
-      BK  =+10.*ALOG10(RST)           
+      BK  =+10.*LOG10(RST)           
       IF(BK.LT.-40.) BK=-40.          
    47 CALL YIKK(BK,PQK,QK)            
       RDHK=BK           
@@ -623,7 +623,7 @@ C     ------------------TROPOSHERIC MULTIPATH--------------------
           
 C     -------------------LOBING MODE----------------------------- 
    22 AY=0.             
-      TLIM=+20.*ALOG10(GOD+REG+REC)-GPD+(AD(18)*FTH)              
+      TLIM=+20.*LOG10(GOD+REG+REC)-GPD+(AD(18)*FTH)              
       BLIM=-80.         
       DO 36 K=1,35      
       VD(K)=AD(K)*FTH                 
@@ -721,9 +721,9 @@ C     ----------------- MISCELLANEOUS STATEMENTS -----------------------
   135 ATRM=0.           
       BTRM=0.           
       GO TO 136         
-  137 WRL=CABS(GOD+AT2)               
+  137 WRL=ABS(GOD+AT2)               
       IF (WRL .LE. GOD)GO TO 138      
-      WRL=CABS(GOD+AT1)               
+      WRL=ABS(GOD+AT1)               
       WR=WRL*WRL+(.0001*GOD)          
       GO TO 139         
   164 D1(1)=DZR         

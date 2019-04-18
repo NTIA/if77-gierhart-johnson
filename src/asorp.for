@@ -31,17 +31,17 @@ C     ROUTINE FOR MODEL APR 77
       GO TO 20          
    12 IF(I.EQ.1) I=2    
    13 L=I-1             
-      A=ALOG10(F)       
-      B=ALOG10(FZ(I))                 
-      C=ALOG10(FZ(L))                 
+      A=LOG10(F)       
+      B=LOG10(FZ(I))                 
+      C=LOG10(FZ(L))                 
       R=(A-C)/(B-C)     
-      D=ALOG10(ZX(I))                 
-      E=ALOG10(ZX(L))                 
+      D=LOG10(ZX(I))                 
+      E=LOG10(ZX(L))                 
       AR=(R*(D-E))+E    
       AO=TEN**AR        
       IF(I.LE.13) GO TO 21            
-      G=ALOG10(ZW(I))                 
-      H=ALOG10(ZW(L))                 
+      G=LOG10(ZW(I))                 
+      H=LOG10(ZW(L))                 
       WR=(R*(G-H))+H    
       AW=TEN**WR        
       RETURN            
@@ -294,37 +294,37 @@ C     CALCULATION OF ROUNDED EARTH DIFFRACTION
       IF(K1.GE.1.) K1=.99999          
       IF(X1.GT.200.) GO TO 17         
       IF(K1.LE.00001) GO TO 16        
-      XL1=450./ABS (ALOG10(K1)**3)    
+      XL1=450./ABS (LOG10(K1)**3)    
       IF(X1.GE.XL1) GO TO 16          
-      FX1=20.*ALOG10(K1)+(2.5*1.E-5*X1*X1/K1)-15.   
+      FX1=20.*LOG10(K1)+(2.5*1.E-5*X1*X1/K1)-15.   
    20 IF(K2.GE.1.) K2=.99999          
       IF(X2.GT.200.) GO TO 19         
       IF(K2.LE.00001) GO TO 18        
-      XL2=450./ABS (ALOG10(K2)**3)    
+      XL2=450./ABS (LOG10(K2)**3)    
       IF(X2.GE.XL2) GO TO 18          
-      FX2=20.*ALOG10(K2)+(2.5*1.E-5*X2*X2/K2)-15.   
-   21 GX3=.05751*X3-10.*ALOG10(X3)    
-      GX4=.05751*X4-10.*ALOG10(X4)    
+      FX2=20.*LOG10(K2)+(2.5*1.E-5*X2*X2/K2)-15.   
+   21 GX3=.05751*X3-10.*LOG10(X3)    
+      GX4=.05751*X4-10.*LOG10(X4)    
       AC3=GX3-FX1-FX2-20.             
       AC4=GX4-FX1-FX2-20.             
       GO TO JD,(25,26)                
-   17 FX1=.05751*X1-(10.*ALOG10(X1))                
+   17 FX1=.05751*X1-(10.*LOG10(X1))                
       IF(X1.GT.2000.) GO TO 20        
       W1=.0134*X1*EXP (-.005*X1)      
-      FX1=W1*(40.*ALOG10(X1)-117.)+(1.-W1)*FX1      
+      FX1=W1*(40.*LOG10(X1)-117.)+(1.-W1)*FX1      
       GO TO 20          
-16    T=40.*ALOG10(X1)-117.           
+16    T=40.*LOG10(X1)-117.           
       T1=-117.          
       T2=AMIN1((ABS (T)),(ABS (T1)))                
       FX1=T             
       IF(T2.EQ.ABS (T1)) FX1=T1       
       GO TO 20          
-   19 FX2=.05751*X2-(10.*ALOG10(X2))                
+   19 FX2=.05751*X2-(10.*LOG10(X2))                
       IF(X2.GT.2000.) GO TO 21        
       W2=.0134*X2*EXP (-.005*X2)      
-      FX2=W2*(40.*ALOG10(X2)-117.)+(1.-W2)*FX2      
+      FX2=W2*(40.*LOG10(X2)-117.)+(1.-W2)*FX2      
       GO TO 21          
-18    T=40.*ALOG10(X2)-117.           
+18    T=40.*LOG10(X2)-117.           
       T1=-117.          
       T2=AMIN1((ABS (T)),(ABS (T1)))                
       FX2=T             
@@ -353,7 +353,7 @@ C     CALCULATION OF SINGLE KNIFE EDGE WITH GHBAR
       TM5=SQRT ((F*DL1*DLK5)/DK5)     
       V5=5.1658*SIN(TH5*.5)*TM5       
       CALL FRNEL(V5,FV5,PH5)          
-      AV5=-20.*ALOG10(FV5)            
+      AV5=-20.*LOG10(FV5)            
       AMK5=(AV5-AK3)/(DK5-D)          
       AWK=AK3-(AMK5*D)                
       DLST7=SQRT (HL1*TWA)            
@@ -386,7 +386,7 @@ C     CALCULATION OF SINGLE KNIFE EDGE WITH GHBAR
       TM2=SQRT ((F*DL1*DLK4)/DK4)     
       V4=5.1658*SIN(TH*.5)*TM2        
       CALL FRNEL(V4,FV,PH)            
-      AV4=-20.*ALOG10(FV)             
+      AV4=-20.*LOG10(FV)             
       AKS=AV4-GH1-GH7+ARK             
       AMKD=(AKS-AK3)/(DK4-D)          
       AEK=AK3-(AMKD*D)                
@@ -725,11 +725,11 @@ C     ROUTINE FOR MODEL APR 77
       IF(HB.GE.2.5) GO TO 10          
       IF(AK.GT..05) GO TO 11          
       IF(HB.LT..3) GO TO 12           
-      GHBAR=-6.5-1.67*HB+6.8*ALOG10(HB)             
+      GHBAR=-6.5-1.67*HB+6.8*LOG10(HB)             
    13 IF(AK.LE..01) GO TO 2           
       GHB=GHBAR         
    11 IF(HB.LT..25) GO TO 14          
-      GHT=-5.9-1.9*HB+6.6*ALOG10(HB)                
+      GHT=-5.9-1.9*HB+6.6*LOG10(HB)                
    15 IF(AK.GT..05) GO TO 16          
       GHBAR=GHT-(GHT-GHB)*((.05-AK)/.04)            
 2     CONTINUE          
@@ -746,15 +746,15 @@ C     ROUTINE FOR MODEL APR 77
       IF(HB.LT..01) WRITE(IOT,6)GHBAR,HB,AK,B       
       IF(HB.GT.100.) WRITE(IOT,6)GHBAR,HB,AK,B      
     5 RETURN            
-   10 GHBAR=-6.6-.013*HB-2.*ALOG10(HB)              
+   10 GHBAR=-6.6-.013*HB-2.*LOG10(HB)              
       GO TO 2           
-   12 GHBAR=1.2-13.5*HB+15.*ALOG10(HB)              
+   12 GHBAR=1.2-13.5*HB+15.*LOG10(HB)              
       GO TO 13          
-   14 GHT=-13.9+24.1*HB+3.1*ALOG10(HB)              
+   14 GHT=-13.9+24.1*HB+3.1*LOG10(HB)              
       GO TO 15          
    16 GHB=GHT           
       IF(HB.LT.0.1) GO TO 17          
-      GHT=-4.7-2.5*HB+7.6*ALOG10(HB)                
+      GHT=-4.7-2.5*HB+7.6*LOG10(HB)                
    18 GHBAR=GHT-(GHT-GHB)*((.1-AK)/.05)             
       GO TO 2           
    17 GHT=-13.          
@@ -797,7 +797,7 @@ C        MAX ERROR 4.5E-4
       T=Q               
       IF(T .GT. 0.5)     T=1.-T       
       T=AMAX1(T,0.00000001)           
-      T=SQRT(-ALOG(T)*2.)             
+      T=SQRT(-LOG(T)*2.)             
       QERFI=T-((C2*T+C1)*T+C0)/(((D3*T+D2)*T+D1)*T+1.)            
       IF(Q .GT. 0.5)     QERFI=-QERFI               
       RETURN            
@@ -844,7 +844,7 @@ C           CORRESPOND TO THE DISTANCE S
           
       AFIT(C1,C2,X1,X2,X3)=((DE/X1)**2)/(1.+((DE/X1)**2))*        
      1     (C1+C2/(1.+((DE-X2)/X3)**2))             
-      QF(F)=SIN(ALOG10(F/200.)*5.)    
+      QF(F)=SIN(LOG10(F/200.)*5.)    
           
 *      CLIM=S
       KLIM=KL
