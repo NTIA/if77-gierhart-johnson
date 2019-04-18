@@ -1,0 +1,242 @@
+                     Card Set Up for ATOA (without plotting)
+
+		1         2         3         4         5         6         7         8
+Column 12345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+Card1: AABBCCDDEEFFFGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGHHHHHIIJJ
+Card2: AAAAAABBBCCDDEEEEEFFFFFGGGGGHHIIIJJKKLLLLLLMMMMMMNNNNNNOOOPPPQQQRRRRRRSSSSSSTT
+Card3: AAAAAABBBCCDDEEEEEFFFFFGGGGHHHHHHIIIIIIJJJJJJKKLLLLLMMMMMNNOOPPQQRRSSSTTTUUUVVV
+
+
+___________________________________________________________________________________
+|                                Card 1                                           |
+|_________________________________________________________________________________|
+|       |  Card   | Program  |                                                    |
+|Symbol | Columns | Variable | Description                                        |
+|_______|_________|__________|____________________________________________________|
+|   A   |   1- 2  |   IK     | Code for units to be used with input:              |
+|       |         |          |     1 = km/meters                                  |
+|       |         |          |     2 = ft/statute miles                           |
+|       |         |          |     3 = ft/nautical miles                          |
+|       |         |          |     0 = terminates a run                           |
+|       |         |          |                                                    |
+|   B   |   3- 4  |   IO     | Code for type of output:                           |
+|       |         |          |     1 = Power Available                            |
+|       |         |          |     2 = Power Density                              |
+|       |         |          |     3 = Transmission Loss                          |
+|       |         |          |                                                    |
+|   C   |   5- 6  |   IJ     | Code for aircraft altitude input:                  |
+|       |         |          |     >0 = the units will be considered the same     |
+|       |         |          |          as distance, (i.e. km, s mi, or n mi).    |
+|       |         |          |                                                    |
+|   D   |   7- 8  |   ILB    | Code for lobing options:                           |
+|       |         |          |     0 = No lobing                                  |
+|       |         |          |     2 = Lobing                                     |
+|       |         |          |                                                    |
+|   E   |   9-10  |   KK     | Code for time availability options:                |
+|       |         |          |     1 = Hourly median levels                       |
+|       |         |          |     2 = Instantaneous levels                       |
+|       |         |          |                                                    |
+|   F   |  11-13  |   IA     | Number of characters and spaces in label (up to 32)|
+|       |         |          |                                                    |
+|   G   |  14-45  |   TT     | Label                                              |
+|       |         |          |                                                    |
+|   H   |  46-50  |  DMAX    | Maximum distance (in km, s mi, n mi, or deg).      |
+|       |         |          | If IGPH>1, it will interpolate and obtain values   |
+|       |         |          |            for this distance.                      |
+|       |         |          |                                                    |
+|   I   |  51-52  |   JC     | JC>0 = output to be in degrees instead of distance.|
+|       |         |          |                                                    |
+|   J   |  53-54  |  IGPH    | If IGPH>1, it will interpolate and obtain values   |
+|       |         |          |            for distance DMAX.                      |
+|       |         |          |                                                    |
+|_______|_________|__________|____________________________________________________|
+
+
+		1         2         3         4         5         6         7         8
+Column 12345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+Card2: AAAAAABBBCCDDEEEEEFFFFFGGGGGHHIIIJJKKLLLLLLMMMMMMNNNNNNOOOPPPQQQRRRRRRSSSSSSTT
+___________________________________________________________________________________
+|                                Card 2                                           |
+|_________________________________________________________________________________|
+|       |  Card   | Program  |                                                    |
+|Symbol | Columns | Variable | Description                                        |
+|_______|_________|__________|____________________________________________________|
+|   A   |   1- 6  |   HLA    | Facility or lower antenna above mean sea level.    |
+|       |         |          |                                                    |
+|   B   |   7- 9  |   IO     | Code for facility antenna pattern:                 |
+|       |         |          |     1 = Isotropic                                  |
+|       |         |          |     2 = DME                                        |
+|       |         |          |     3 = TACAN (RTA-2)                              |
+|       |         |          |     4 = 4-loop array (cosine vertical pattern)     |
+|       |         |          |     5 = 8-loop array (cosine vertical pattern)     |
+|       |         |          |     6 = I or II (cosine vertical pattern)          |
+|       |         |          |     7 = JTAC with tilted antenna                   |
+|       |         |          |                                                    |
+|   C   |  10-11  |   JT     | Code for antenna:                                  |
+|       |         |          |     0 = directive                                  |
+|       |         |          |     >0= tracking                                   |
+|       |         |          |                                                    |
+|   D   |  12-13  |   IPL    | Code for polarization of facility antenna:         |
+|       |         |          |     1 = Horizontal                                 |
+|       |         |          |     2 = Vertical                                   |
+|       |         |          |     3 = Circular                                   |
+|       |         |          |     Also used for reflection coefficient and       |
+|       |         |          |     ground constants.                              |
+|       |         |          |                                                    |
+|   E   |  14-18  |   T1T    | Tilt of the facility antenna main beam in degrees. |
+|       |         |          |     Not used for patterns 1-6.                     |
+|       |         |          |                                                    |
+|   F   |  19-23  |  H1PBW   | HALF of the half-power-beam width of the           |
+|       |         |          |      facility antenna.                             |
+|       |         |          |     Not used for patterns 1-6.                     |
+|       |         |          |                                                    |
+|   G   |  24-28  |   SUR    | Elevation of the facility site surface above MSL.  |
+|       |         |          |                                                    |
+|   H   |  29-30  |   IZ     | Rainfall Zones:                                    |
+|       |         |          |     0 = No consideration                           |
+|       |         |          |   1-6 = See Samson's maps                          |
+|       |         |          |     7 = Add 0.5 dB times storm size to attenuation.|
+|       |         |          |                                                    |
+|   I   |  31-33  |   STS    | Size of storm (5, 10, 0r 20 km).                   |
+|       |         |          |                                                    |
+|   J   |  34-35  |   KD     | Code for terrain type options:                     |
+|       |         |          |     1 = Smooth earth                               |
+|       |         |          |     2 = Irregular terrain                          |
+|       |         |          |                                                    |
+|   K   |  36-37  |   KE     | Code for horizon options:                          |
+|       |         |          |     0 = None specified                             |
+|       |         |          |     1 = ANGLE specified by IDG, IMN, and SEC       |
+|       |         |          |     2 = HEIGHT specified by HHOI                   |
+|       |         |          |     3 = Both ANGLE and HEIGHT are specified.       |
+|       |         |          |                                                    |
+|   L   |  38-43  |  DHSI    | Terrain parameter delta h (ft) from table.         |
+|       |         |          |                                                    |
+|   M   |  44-49  |  DHOI    | Distance to facility radio horizon (n mi).         |
+|       |         |          |    NOTE: Zero or negative values will result in    |
+|       |         |          |          calculation of this parameter from others |
+|       |         |          |          (Figure 14).                              |
+|       |         |          |                                                    |
+|   N   |  50-55  |  HHOI    | Elevation of facility radio horizon above MSL.     |
+|       |         |          |                                                    |
+|   O   |  56-58  |   IDG    | Facility radio horizon angle in degrees.           |
+|       |         |          |                                                    |
+|   P   |  59-61  |   IMN    | Minutes.                                           |
+|       |         |          |                                                    |
+|   Q   |  62-64  |  ISEC    | Seconds.                                           |
+|       |         |          |                                                    |
+|   R   |  65-70  |   DCI    | Diameter of facility counterpoise (ft).            |
+|       |         |          |    NOTE: Zero or negative will cause the program   |
+|       |         |          |          to assume that no counterpoise is present.|
+|       |         |          |                                                    |
+|   S   |  71-76  |   HCI    | Height of facility counterpoise above site surface.|
+|       |         |          |                                                    |
+|   T   |  77-78  |   ICC    | Code for counterpoise reflection material type.    |
+|       |         |          |    (Same as for KSC on card 3.)                    |
+|       |         |          |                                                    |
+|_______|_________|__________|____________________________________________________|
+
+
+		1         2         3         4         5         6         7         8
+Column 12345678901234567890123456789012345678901234567890123456789012345678901234567890
+
+Card3: AAAAAABBBCCDDEEEEEFFFFFGGGGHHHHHHIIIIIIJJJJJJKKLLLLLMMMMMNNOOPPQQRRSSSTTTUUUVVV
+___________________________________________________________________________________
+|                                Card 3                                           |
+|_________________________________________________________________________________|
+|       |  Card   | Program  |                                                    |
+|Symbol | Columns | Variable | Description                                        |
+|_______|_________|__________|____________________________________________________|
+|   A   |   1- 6  |   HAI    | Aircraft or higher antenna above mean sea level.   |
+|       |         |          |                                                    |
+|   B   |   7- 9  |   IAA    | Code for aircraft antenna pattern:                 |
+|       |         |          |     1 = Isotropic                                  |
+|       |         |          |     2 = DME                                        |
+|       |         |          |     3 = TACAN (RTA-2)                              |
+|       |         |          |     4 = 4-loop array (cosine vertical pattern)     |
+|       |         |          |     5 = 8-loop array (cosine vertical pattern)     |
+|       |         |          |     6 = I or II (cosine vertical pattern)          |
+|       |         |          |     7 = JTAC with tilt                             |
+|       |         |          |                                                    |
+|   C   |  10-11  |   JS     | Code for antenna:                                  |
+|       |         |          |     0 = directive                                  |
+|       |         |          |     >0= tracking                                   |
+|       |         |          |                                                    |
+|   D   |  12-13  |   NPL    | Code for polarization of aircraft antenna:         |
+|       |         |          |                                                    |
+|   E   |  14-18  |   T2T    | Tilt of the aircraft antenna main beam in degrees. |
+|       |         |          |     Not used for patterns 1-6.                     |
+|       |         |          |                                                    |
+|   F   |  19-23  |  H2PBW   | HALF of the half-power-beamwidth of the            |
+|       |         |          |      aircraft antenna.                             |
+|       |         |          |     Not used for patterns 1-6.                     |
+|       |         |          |                                                    |
+|   G   |  24-27  |   EN0    | Surface refractivity referred to sea level         |
+|       |         |          | (N-units) from Figure 3.                           |
+|       |         |          |    NOTE: 301 N-units will be used if value not     |
+|       |         |          |          specified or <250 or >400 N-units.        |
+|       |         |          |                                                    |
+|   H   |  28-33  |   F      | Frequency (MHz)                                    |
+|       |         |          |                                                    |
+|   I   |  34-39  |  EIRP    | Equivalent Isotropically Radiated Power (dBW) for  |
+|       |         |          | Power Density and Power Available output. Sum of   |
+|       |         |          | the main bean gains in dB for Transmission Loss.   |
+|       |         |          |                                                    |
+|   J   |  40-45  |  HPFI    | Elevation of effective reflection surface above MSL|
+|       |         |          |                                                    |
+|   K   |  46-47  |   KSC    | Code for earth reflection material type (Table 2): |
+|       |         |          |     1 = sea water                                  |
+|       |         |          |     2 = good ground                                |
+|       |         |          |     3 = average ground                             |
+|       |         |          |     4 = poor ground                                |
+|       |         |          |     5 = fresh water                                |
+|       |         |          |     6 = concrete                                   |
+|       |         |          |     7 = metallic                                   |
+|       |         |          |                                                    |
+|   L   |  48-52  |   TP     | Temperature in Celsius (0, 10, 20) of the water.   |
+|       |         |          |                                                    |
+|   M   |  53-57  |   SCK    | Sigma in feet or meters if you do not use standard.|
+|       |         |          |                                                    |
+|   N   |  58-59  |   ISS    | Code for sea state per table.                      |
+|       |         |          |                                                    |
+|   O   |  60-61  |   JM     | Code for sigma:                                    |
+|       |         |          |     0 = use standard.                              |
+|       |         |          |    >0 = read in SCK.                               |
+|       |         |          |                                                    |
+|   P   |  62-63  |   IOS    | Code for Ionospheric Scintillation index group:    |
+|       |         |          |   0-5 = See Figure 5, GOES Report.                 |
+|       |         |          |    -1 = Variable group.                            |
+|       |         |          |                                                    |
+|   Q   |  64-65  |   IPK    | Code for frequency scaling factor:                 |
+|       |         |          |     0 = not use.                                   |
+|       |         |          |     1 = (136/f)                                    |
+|       |         |          |                                                    |
+|   R   |  66-67  |   JO     | Code:                                              |
+|       |         |          |     0 = no scintillation.                          |
+|       |         |          |    >0 = scintillation.                             |
+|       |         |          |                                                    |
+|   S   |  68-70  |   KLM    | Code for climate 1 and time blocks:                |
+|       |         |          |     0 = Continental all years                      |
+|       |         |          |     1 = Equatorial                                 |
+|       |         |          |     2 = Continental subtropical                    |
+|       |         |          |     3 = Maritime    subtropical                    |
+|       |         |          |     4 = Desert                                     |
+|       |         |          |     5 = Continental temperate                      |
+|       |         |          |     6 = Maritime temperate overland                |
+|       |         |          |     7 = Maritime temperate overseas                |
+|       |         |          |     8 = None                                       |
+|       |         |          |     9 = Summer time block                          |
+|       |         |          |    10 = Winter time block                          |
+|       |         |          | 11-18 = Time blocks (1-8)                          |
+|       |         |          |    19 = All year time block                        |
+|       |         |          |                                                    |
+|   T   |  71-73  |   MX1    | Code for mixing:                                   |
+|       |         |          |     0 = no mixing                                  |
+|       |         |          |    >0 = weighting factor for climate 1.            |
+|       |         |          |                                                    |
+|   U   |  74-76  |  KLM2    | Code for climate 2 using same codes as in KLM.     |
+|       |         |          |                                                    |
+|   V   |  77-79  |   MX2    | Weighting factor for climate 2 when mixing.        |
+|       |         |          |                                                    |
+|_______|_________|__________|____________________________________________________|
