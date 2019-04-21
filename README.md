@@ -13,7 +13,7 @@ The IF-77 software is available for download as a "zip" file. The download conta
 The zip package contains:
 
 * ata.exe: An executable file for ATA that runs on a PC (tested on Windows 7)
-* atoa.in: Sample input file for ATA. Run with: ata < atoa.in > atoa.out
+* atoa.in: Sample input file for ATA. Run with: `ata.exe < atoa.in > atoa.out`
 * atoa.out: Sample output file for ATA.
 * cards.txt: Text description of data input cards.
 
