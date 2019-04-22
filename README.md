@@ -8,9 +8,9 @@ The work was performed under contract to the U.S. Department of Transportation (
 
 * M.E. Johnson and G.D. Gierhart, [The IF-77 Electromagnetic Wave Propagation Model](https://www.its.bldrdoc.gov/publications/details.aspx?pub=2524), NTIA Sponsor Report FAA-ES-83/3, September 1983.
 
-The IF-77 software is available for download as a "zip" file. The download contains software developed by NTIA. NTIA does not make any warranty of any kind, express, implied or statutory, including, without limitation, the implied warranty of merchantability, fitness for a particular purpose, non-infringement and data accuracy. NTIA does not warrant or make any representations regarding the use of the software or the results thereof, including but not limited to the correctness, accuracy, reliability or usefulness of the software or the results. You can use, copy, modify, and redistribute the NTIA-developed software upon your acceptance of these terms and conditions and upon your express agreement to provide appropriate acknowledgments of NTIA's ownership of and development of the software by keeping this exact text present in any copied or derivative works. The "zip" file is available for download in the [Releases](https://github.com/NTIA/if77-legacy/releases) page of this code repository.
+The original IF-77 software written by NTIA is Release v1.0.  A list of all available software releases can be viewed [here](https://github.com/NTIA/if77-legacy/releases).
 
-The zip package contains:
+The release package contains:
 
 * ata.exe: An executable file for ATA that runs on a PC (tested on Windows 7)
 * atoa.in: Sample input file for ATA. Run with: `ata.exe < atoa.in > atoa.out`
