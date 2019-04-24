@@ -1,4 +1,4 @@
-# IF-77 Electromagnetic Wave Propagation Model (Gierhart-Johnson)
+# IF-77 (Gierhart-Johnson)
 
 In 1973, ITS released the IF-73 (ITS-FAA-1973) air/ground propagation model developed for the Federal Aviation Administration (FAA). IF-73 evolved into the IF-77 (ITS-FAA-1977) model, which is applicable to air/air, air/ground, air/satellite, ground/ground, and ground/satellite paths. The IF-77 was incorporated into a number of FORTRAN programs that are useful in estimating the service coverage of radio systems. These programs may be used to obtain a wide variety of computer-generated microfilm plots.
 
@@ -25,4 +25,4 @@ Extensive comparisons of IF-77 predictions with measured data were made, and an 
 * M.E. Johnson and G.D. Gierhart, [An Atlas of Basic Transmission Loss For 0.125 to 15.5 GHz](https://www.its.bldrdoc.gov/publications/2520.aspx), NTIA Sponsor Report FAA-RD-80-1, August 1980
 * Weiner, M., [Use of the Longley-Rice and Johnson-Gierhart Tropospheric Radio Propagation Programs: 0.02-20 GHz](https://www.its.bldrdoc.gov/media/35805/Weiner.UseL-R&J-G.pdf), IEEE Journal on Selected Areas in Communications, vol.4, no.2, pp. 297-307, March 1986
 
-For assistance with downloads, contact info@its.bldrdoc.gov. For technical questions about IF-77, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov.
+For technical questions about IF-77, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov.
