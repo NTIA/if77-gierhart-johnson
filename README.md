@@ -6,7 +6,7 @@ The IF-77 radio wave propagation model is applicable to air/ground, air/air, gro
 
 ## History of the Software Implementation
 
-In 1973, ITS released the IF-73 (ITS-FAA-1973) air/ground propagation model developed for the Federal Aviation Administration (FAA). IF-73 evolved into the IF-77 (ITS-FAA-1977) model. The IF-77 was incorporated into a number of FORTRAN programs that are useful in estimating the service coverage of radio systems. These programs were used to obtain a wide variety of computer-generated microfilm plots. The work was performed under contract to the U.S. Department of Transportation (DOT), contract number DTFA01-82-Y-10539 and published in 1983.
+In 1973, ITS released the IF-73 (ITS-FAA-1973) air/ground propagation model developed for the Federal Aviation Administration (FAA). IF-73 evolved into the IF-77 (ITS-FAA-1977) model. The IF-77 was incorporated into a number of FORTRAN programs that are useful in estimating the service coverage of radio systems. These programs were used to obtain a wide variety of computer-generated microfilm plots. Extensive comparisons of IF-77 predictions with measured data were made, and an atlas of basic transmission loss predictions was generated using the model. The work was performed under contract to the U.S. Department of Transportation (DOT), contract number DTFA01-82-Y-10539 and published in 1983 <Note to Kozma: add reference to Johnson Gierhart, 1983>.
 
 ## Releases
 
@@ -18,8 +18,6 @@ The release package contains:
 * atoa.in: Sample input file for ATA. Run with: `ata.exe < atoa.in > atoa.out`
 * atoa.out: Sample output file for ATA.
 * cards.txt: Text description of data input cards.
-
-Extensive comparisons of IF-77 predictions with measured data were made, and an atlas of basic transmission loss predictions was generated using the model. 
 
 ## References
 
