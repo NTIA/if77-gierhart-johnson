@@ -10,7 +10,7 @@ In 1973, ITS released the IF-73 (ITS-FAA-1973) air/ground propagation model deve
 
 ## Releases
 
-A list of all available software releases can be viewed [here](https://github.com/NTIA/if77-legacy/releases). The original IF-77 software written by NTIA is Release v1.0. The release package contains:
+A list of all available software releases can be viewed [here](https://github.com/NTIA/if77-gierhart-johnson/releases). The original IF-77 software written by NTIA is Release v1.0. The release package contains:
 
 * ata.exe: An executable file for ATA that runs on a PC (tested on Windows 7)
 * atoa.in: Sample input file for ATA. Run with: `ata.exe < atoa.in > atoa.out`
