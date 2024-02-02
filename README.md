@@ -28,4 +28,4 @@ A list of all available software releases can be viewed [here](https://github.co
 
 ## Contact
 
-For technical questions about IF-77, contact Paul McKenna, (303) 497-3474, pmckenna@ntia.gov.
+For technical questions about IF-77, contact Paul McKenna, pmckenna@ntia.gov.
